@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cv7s4weuirxdh"
+path="res://.godot/imported/hospital beep.mp3-a08bbedbb351cca197c87d7988d69b12.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/hospital beep.mp3"
+dest_files=["res://.godot/imported/hospital beep.mp3-a08bbedbb351cca197c87d7988d69b12.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

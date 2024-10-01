@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxgvsyfxssi22"]
+
+[ext_resource type="Texture2D" uid="uid://bjl7ngs3wsjjm" path="res://Assets/Enemies/Demons 1.png" id="1_600ch"]
+[ext_resource type="Script" path="res://Scenes/big_ghost.gd" id="1_bbarp"]
+[ext_resource type="Texture2D" uid="uid://b1ogrqswe6rom" path="res://Assets/Enemies/Demons 1 frame 2.png" id="2_kgesg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8s7f6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_600ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kgesg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BigGhost" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_bbarp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8s7f6")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-0.499999, -0.5)
+scale = Vector2(1.21875, 1.34375)
+polygon = PackedVector2Array(-10.2564, -15.2558, -14.359, -8.55814, -14.359, -4.09302, -12.7179, -1.86046, -16, 2.60465, -16, 5.5814, -13.5385, 5.5814, -11.8974, 6.32558, -11.8974, 8.55814, -9.4359, 8.55814, -6.97436, 5.5814, 2.05128, 13.0233, 12.7179, 16, 16, 14.5116, 16, 13.0233, 11.8974, 12.2791, 0.410256, -2.60465, 4.51282, -9.30233, 4.51282, -10.7907, -2.05128, -15.2558, -6.15385, -16)

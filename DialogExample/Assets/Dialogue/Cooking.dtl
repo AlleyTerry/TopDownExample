@@ -1,0 +1,9 @@
+if {choreHits} == 0:
+	Charlie: I should make food for Sarah...
+if {choreHits} == 1:
+	Charlie: I should help her cook next time.
+if {choreHits} == 2:
+	Charlie: I can’t even compliment her cooking anymore.
+if {choreHits} == 3:
+	Charlie: What’s wrong with me?
+[signal arg="end"]

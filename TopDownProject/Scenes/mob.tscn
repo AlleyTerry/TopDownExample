@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cpi8t4fsqo6xd"]
+
+[ext_resource type="PackedScene" uid="uid://c3gx17md5i8c3" path="res://Scenes/baby.tscn" id="1_3oudr"]
+[ext_resource type="Script" path="res://Scenes/mob.gd" id="1_f3t1h"]
+[ext_resource type="PackedScene" uid="uid://d7f5j5rykhlq" path="res://Scenes/chatbox.tscn" id="3_chst8"]
+[ext_resource type="PackedScene" uid="uid://civgxg5asbf8a" path="res://Scenes/hover_text.tscn" id="4_bryrq"]
+[ext_resource type="PackedScene" uid="uid://hsa6jtnajvrt" path="res://Scenes/BottleIcons.tscn" id="5_7ddr5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_10v2n"]
+radius = 70.1142
+
+[node name="Mob" type="CharacterBody2D"]
+script = ExtResource("1_f3t1h")
+mob_speed = 200.0
+
+[node name="Baby" parent="." instance=ExtResource("1_3oudr")]
+
+[node name="Timer2" type="Timer" parent="Baby"]
+wait_time = 3.0
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_10v2n")
+
+[node name="Chatbox" parent="." instance=ExtResource("3_chst8")]
+
+[node name="hoverText" parent="." instance=ExtResource("4_bryrq")]
+
+[node name="BottleIcons" parent="." instance=ExtResource("5_7ddr5")]
+offset_left = 1.0
+offset_top = -25.0
+offset_right = 1.0
+offset_bottom = -25.0
+
+[connection signal="timeout" from="Baby/Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="dialogue_finished" from="Chatbox" to="." method="_on_chatbox_dialogue_finished"]

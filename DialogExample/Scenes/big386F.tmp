@@ -1,0 +1,105 @@
+[gd_scene load_steps=15 format=3 uid="uid://bxgvsyfxssi22"]
+
+[ext_resource type="Texture2D" uid="uid://bjl7ngs3wsjjm" path="res://Assets/Enemies/Demons 1.png" id="1_600ch"]
+[ext_resource type="Script" path="res://Scripts/big_ghost.gd" id="1_bbarp"]
+[ext_resource type="Texture2D" uid="uid://bnrqfu8wc2xge" path="res://Assets/Enemies/Demons 1 Death Animations.png" id="2_f5v2m"]
+[ext_resource type="Texture2D" uid="uid://b1ogrqswe6rom" path="res://Assets/Enemies/Demons 1 frame 2.png" id="2_kgesg"]
+[ext_resource type="Script" path="res://Scenes/facing_collision_2d.gd" id="4_1ppjm"]
+[ext_resource type="Script" path="res://Scenes/attack_area.gd" id="4_iiij4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11ish"]
+atlas = ExtResource("2_f5v2m")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_erely"]
+atlas = ExtResource("2_f5v2m")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2a7h"]
+atlas = ExtResource("2_f5v2m")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmq2c"]
+atlas = ExtResource("2_f5v2m")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8s7f6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11ish")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_erely")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2a7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmq2c")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"dead",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_600ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kgesg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a344v"]
+size = Vector2(39, 43.1492)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7lkgb"]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r43q0"]
+
+[node name="BigGhost" type="RigidBody2D" groups=["Ghost"]]
+scale = Vector2(-1, 1)
+gravity_scale = 0.0
+script = ExtResource("1_bbarp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8s7f6")
+animation = &"dead"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.574583)
+shape = SubResource("RectangleShape2D_a344v")
+
+[node name="AttackArea" type="Area2D" parent="." node_paths=PackedStringArray("ghost", "facing_collision")]
+rotation = -0.00344362
+priority = 1
+script = ExtResource("4_iiij4")
+ghost = NodePath("..")
+facing_collision = NodePath("CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-17, 7)
+shape = SubResource("CircleShape2D_7lkgb")
+script = ExtResource("4_1ppjm")
+facing_left_position = Vector2(17, 7)
+facing_right_position = Vector2(-17, 7)
+
+[node name="AggroRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroRange"]
+scale = Vector2(6.35123, 6.35123)
+shape = SubResource("CircleShape2D_r43q0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_entered" from="AggroRange" to="." method="_on_aggro_range_body_entered"]
+[connection signal="body_exited" from="AggroRange" to="." method="_on_aggro_range_body_exited"]

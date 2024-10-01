@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c13qb1cu4ay3u"
+path="res://.godot/imported/Car crash.mp3-a96564cfa16abb07a2e9e35d027b5f6f.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Car crash.mp3"
+dest_files=["res://.godot/imported/Car crash.mp3-a96564cfa16abb07a2e9e35d027b5f6f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

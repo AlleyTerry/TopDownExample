@@ -1,0 +1,7 @@
+if {numHits} == 1:
+	Charlie: You’re a Failure
+elif {numHits} == 2:
+	Charlie: You only have yourself to blame.
+elif {numHits} == 3:
+	Charlie: You’re getting fired.
+[signal arg="end"]

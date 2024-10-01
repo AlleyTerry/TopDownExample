@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://cthy78fxn5fmm"]
+
+[ext_resource type="Script" path="res://Scenes/CookedUI.gd" id="1_plxld"]
+[ext_resource type="Texture2D" uid="uid://vor7vf582kfx" path="res://Assets/Objects/milkBowl.png" id="1_vuhqm"]
+[ext_resource type="Texture2D" uid="uid://d2wlxlipm7fp2" path="res://Assets/Objects/GoopBowl.png" id="2_lby50"]
+[ext_resource type="Texture2D" uid="uid://b7tsgs4bf7c6q" path="res://Assets/Objects/SlimeBowl.png" id="3_5eb73"]
+
+[node name="CookedUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_plxld")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 820.0
+offset_bottom = 355.0
+
+[node name="milk" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 47.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+text = "milk
+"
+
+[node name="goop" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 74.0
+offset_top = -2.0
+offset_right = 130.0
+offset_bottom = 28.0
+scale = Vector2(0.5, 0.5)
+text = "goop"
+
+[node name="slime" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = -1.0
+offset_right = 84.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+text = "slime"
+
+[node name="milkbowl" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 10.0
+offset_right = 65.0
+offset_bottom = 74.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vuhqm")
+
+[node name="goopbowl" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 9.0
+offset_right = 132.0
+offset_bottom = 73.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_lby50")
+
+[node name="slimebowl" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 9.0
+offset_right = 97.0
+offset_bottom = 73.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5eb73")

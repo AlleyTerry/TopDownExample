@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1nc8cmdkx248"]
+
+[ext_resource type="Script" path="res://Scripts/opening.gd" id="1_jrrrb"]
+[ext_resource type="PackedScene" uid="uid://bwls5up7f6my2" path="res://Scenes/scene_transition.tscn" id="2_pygg8"]
+
+[node name="Opening" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jrrrb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -716.0
+offset_top = -336.0
+offset_right = 1204.0
+offset_bottom = 744.0
+scale = Vector2(2, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="SceneTransition" parent="." instance=ExtResource("2_pygg8")]

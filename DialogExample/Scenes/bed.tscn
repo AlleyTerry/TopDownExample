@@ -1,0 +1,163 @@
+[gd_scene load_steps=23 format=3 uid="uid://5tdunpimkd8r"]
+
+[ext_resource type="Texture2D" uid="uid://bdw0ibsxpr1fb" path="res://Assets/Items/Bed level 4 sprite.png" id="1_b7t4x"]
+[ext_resource type="Script" path="res://Scenes/bed.gd" id="1_qs473"]
+[ext_resource type="Texture2D" uid="uid://d1tosvemi3xt1" path="res://Assets/Character/charlie_sprites.png" id="2_dumes"]
+[ext_resource type="PackedScene" uid="uid://bwls5up7f6my2" path="res://Scenes/scene_transition.tscn" id="4_6dxnq"]
+[ext_resource type="Texture2D" uid="uid://chg1mrxuc1x08" path="res://Assets/Items/Level1-item.png" id="5_7lrq5"]
+[ext_resource type="Texture2D" uid="uid://62847p83o7b" path="res://Assets/Items/Level2-item.png" id="6_n3sn6"]
+[ext_resource type="Texture2D" uid="uid://cl5p1xyp64tps" path="res://Assets/Items/Level3-item.png" id="7_2f0je"]
+[ext_resource type="Texture2D" uid="uid://dgu38tcctdorj" path="res://Assets/Items/Level4-item.png" id="8_pq6em"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axlch"]
+atlas = ExtResource("1_b7t4x")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frsma"]
+atlas = ExtResource("2_dumes")
+region = Rect2(32, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wur18"]
+atlas = ExtResource("2_dumes")
+region = Rect2(16, 192, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk2dc"]
+atlas = ExtResource("2_dumes")
+region = Rect2(1, 192, 14, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sm8ff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axlch")
+}],
+"loop": false,
+"name": &"Bed",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frsma")
+}],
+"loop": false,
+"name": &"Sink",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wur18")
+}],
+"loop": false,
+"name": &"Stove",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk2dc")
+}],
+"loop": false,
+"name": &"WashingMachine",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vpi0i"]
+size = Vector2(98, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c4k6"]
+atlas = ExtResource("5_7lrq5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v8hi"]
+atlas = ExtResource("6_n3sn6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdbc7"]
+atlas = ExtResource("7_2f0je")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j8lp"]
+atlas = ExtResource("8_pq6em")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8r2jr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c4k6")
+}],
+"loop": false,
+"name": &"level1",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v8hi")
+}],
+"loop": false,
+"name": &"level2",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdbc7")
+}],
+"loop": true,
+"name": &"level3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j8lp")
+}],
+"loop": false,
+"name": &"level4",
+"speed": 0.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0u0r7"]
+
+[sub_resource type="Gradient" id="Gradient_isf6p"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vqr78"]
+gradient = SubResource("Gradient_isf6p")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.512821, 0.0299145)
+
+[node name="Bed" type="Node2D"]
+script = ExtResource("1_qs473")
+
+[node name="Bed" type="AnimatedSprite2D" parent="."]
+position = Vector2(1415, 686)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_sm8ff")
+animation = &"Bed"
+
+[node name="End" type="Area2D" parent="Bed"]
+position = Vector2(-353.75, -171.5)
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed/End"]
+position = Vector2(1433, 687.5)
+shape = SubResource("RectangleShape2D_vpi0i")
+
+[node name="SceneTransition" parent="." instance=ExtResource("4_6dxnq")]
+
+[node name="Level4Item" type="AnimatedSprite2D" parent="."]
+position = Vector2(1430, 617)
+sprite_frames = SubResource("SpriteFrames_8r2jr")
+animation = &"level4"
+
+[node name="Level4ItemArea" type="Area2D" parent="Level4Item"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level4Item/Level4ItemArea"]
+shape = SubResource("RectangleShape2D_0u0r7")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(1411, 662)
+texture = SubResource("GradientTexture2D_vqr78")
+
+[connection signal="body_entered" from="Bed/End" to="." method="_on_end_body_entered"]

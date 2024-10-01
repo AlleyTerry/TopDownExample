@@ -1,0 +1,305 @@
+[gd_scene load_steps=27 format=3 uid="uid://l27vrrxpjh1e"]
+
+[ext_resource type="Texture2D" uid="uid://dyb1mpjn7ijmi" path="res://Assets/Objects/EmptyBottle.png" id="1_eduou"]
+[ext_resource type="Script" path="res://Scenes/DanceLevel.gd" id="1_ssh6q"]
+[ext_resource type="Texture2D" uid="uid://cqw2hpg7dr50m" path="res://Assets/Objects/MilkBottle.png" id="2_ew47x"]
+[ext_resource type="Texture2D" uid="uid://b3y2rtpb7ibjw" path="res://Assets/Objects/SplimeBottle.png" id="3_858t7"]
+[ext_resource type="Texture2D" uid="uid://d0vijlovm8ce3" path="res://Assets/Objects/GoopBootle.png" id="4_x60ws"]
+[ext_resource type="PackedScene" uid="uid://dow5un3blryx8" path="res://Scenes/goop_bottle_clickable.tscn" id="7_3nb30"]
+[ext_resource type="PackedScene" uid="uid://bfjtektp1xpih" path="res://Scenes/slime_bottle_clickable.tscn" id="8_0l61v"]
+[ext_resource type="PackedScene" uid="uid://n85j8t72kst7" path="res://Scenes/milk_bottle_clickable.tscn" id="8_4vqd3"]
+[ext_resource type="Texture2D" uid="uid://f18sqqneguif" path="res://Assets/Objects/NO.png" id="9_qf3dc"]
+[ext_resource type="Texture2D" uid="uid://cujn32x0o5bpl" path="res://Assets/Objects/OK.png" id="10_d2qwg"]
+[ext_resource type="Texture2D" uid="uid://djxqcu3twsfg3" path="res://Assets/Objects/Blank64x64Frame.png" id="11_8btj4"]
+[ext_resource type="PackedScene" uid="uid://cf817e81sjuqa" path="res://Scenes/BackButton.tscn" id="12_tsq4x"]
+[ext_resource type="PackedScene" uid="uid://cj2d4qih0jgeb" path="res://Scenes/bottle_ui.tscn" id="13_mnt50"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xoiov"]
+size = Vector2(20, 57)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7p2kq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_eduou")
+}],
+"loop": false,
+"name": &"pose1",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ew47x")
+}],
+"loop": false,
+"name": &"pose2",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_858t7")
+}],
+"loop": false,
+"name": &"pose3",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_x60ws")
+}],
+"loop": false,
+"name": &"pose4",
+"speed": 0.0
+}]
+
+[sub_resource type="Animation" id="Animation_2cvdx"]
+resource_name = "EmptyBottle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DanceLevel/StaticBody2D/Poses:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pose1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DanceLevel/StaticBody2D/Poses:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_xwsvt"]
+resource_name = "GoopBottle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DanceLevel/StaticBody2D/Poses:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pose4"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DanceLevel/StaticBody2D/Poses:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_5n8bf"]
+resource_name = "MilkBottle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DanceLevel/StaticBody2D/Poses:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pose2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DanceLevel/StaticBody2D/Poses:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jrt73"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DanceLevel/StaticBody2D/Poses:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DanceLevel/StaticBody2D/Poses:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pose1"]
+}
+
+[sub_resource type="Animation" id="Animation_66aav"]
+resource_name = "SlimeBottle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DanceLevel/StaticBody2D/Poses:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pose3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DanceLevel/StaticBody2D/Poses:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ietxk"]
+_data = {
+"EmptyBottle": SubResource("Animation_2cvdx"),
+"GoopBottle": SubResource("Animation_xwsvt"),
+"MilkBottle": SubResource("Animation_5n8bf"),
+"RESET": SubResource("Animation_jrt73"),
+"SlimeBottle": SubResource("Animation_66aav")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxa7c"]
+atlas = ExtResource("9_qf3dc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n6wa3"]
+atlas = ExtResource("9_qf3dc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcmmg"]
+atlas = ExtResource("10_d2qwg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dpoaf"]
+atlas = ExtResource("10_d2qwg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o5t53"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxa7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n6wa3")
+}],
+"loop": true,
+"name": &"NO",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcmmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dpoaf")
+}],
+"loop": true,
+"name": &"OK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_8btj4")
+}],
+"loop": true,
+"name": &"nothing",
+"speed": 5.0
+}]
+
+[node name="DanceLevel" type="Node2D"]
+script = ExtResource("1_ssh6q")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(75, 58)
+shape = SubResource("RectangleShape2D_xoiov")
+
+[node name="Poses" type="AnimatedSprite2D" parent="StaticBody2D"]
+position = Vector2(75, 55)
+sprite_frames = SubResource("SpriteFrames_7p2kq")
+animation = &"pose1"
+
+[node name="PoseAnimationPlayer" type="AnimationPlayer" parent="StaticBody2D"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_ietxk")
+}
+
+[node name="DoneButton" type="Button" parent="."]
+offset_left = 213.0
+offset_top = 115.0
+offset_right = 270.0
+offset_bottom = 146.0
+text = "DONE"
+
+[node name="GoopBottleClickable" parent="." instance=ExtResource("7_3nb30")]
+position = Vector2(93, 140)
+
+[node name="MilkBottleClickable" parent="." instance=ExtResource("8_4vqd3")]
+position = Vector2(127, 139)
+
+[node name="SlimeBottleClickable" parent="." instance=ExtResource("8_0l61v")]
+position = Vector2(52, 141)
+
+[node name="OKNO" type="AnimatedSprite2D" parent="."]
+position = Vector2(217, 67)
+sprite_frames = SubResource("SpriteFrames_o5t53")
+animation = &"nothing"
+
+[node name="BottleUI" parent="." instance=ExtResource("13_mnt50")]
+offset_left = 125.0
+offset_top = -1.0
+offset_right = 492.0
+offset_bottom = 82.0
+
+[node name="Back Button" parent="." instance=ExtResource("12_tsq4x")]
+offset_left = 450.0
+offset_top = 51.0
+offset_right = 450.0
+offset_bottom = 51.0
+
+[connection signal="input_event" from="StaticBody2D/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="input_event" from="StaticBody2D/Area2D" to="StaticBody2D" method="_on_area_2d_input_event"]
+[connection signal="button_down" from="DoneButton" to="." method="_on_done_button_button_down"]

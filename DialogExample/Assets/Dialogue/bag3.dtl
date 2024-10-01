@@ -1,0 +1,9 @@
+if {numHits} == 1:
+	Charlie: I want to be better.
+if {numHits} == 2:
+	Charlie: I want to help more
+if {numHits} == 3:
+	Charlie: I want a stable job
+if {numHits} == 4:
+	Charlie: I want someone to help me.
+[signal arg="end"]

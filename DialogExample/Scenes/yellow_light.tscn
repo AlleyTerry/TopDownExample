@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwhbcgtfafxk0"]
+
+[ext_resource type="Script" path="res://Scripts/light.gd" id="1_f8dff"]
+[ext_resource type="Texture2D" uid="uid://du0avwa44jiu5" path="res://Assets/Tiles/ground-and-ceiling_tiles.png" id="2_t5h2t"]
+
+[sub_resource type="Gradient" id="Gradient_82vui"]
+offsets = PackedFloat32Array(0, 0.5)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_drl61"]
+gradient = SubResource("Gradient_82vui")
+height = 128
+fill = 2
+fill_from = Vector2(0.495726, 0.0213675)
+fill_to = Vector2(0.487179, 1)
+
+[node name="YellowLight" type="Node2D"]
+position = Vector2(0, -4)
+script = ExtResource("1_f8dff")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 138.465)
+scale = Vector2(1.48438, 2.28961)
+color = Color(1, 1, 0, 1)
+texture = SubResource("GradientTexture2D_drl61")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(0.620256, 0.620256)
+texture = ExtResource("2_t5h2t")
+region_enabled = true
+region_rect = Rect2(360, 552, 16, 24)
+
+[node name="FlickeringTimer" type="Timer" parent="."]
+
+[node name="SwapFlickeringTiming" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="FlickeringTimer" to="." method="_on_flickering_timer_timeout"]
+[connection signal="timeout" from="SwapFlickeringTiming" to="." method="_on_swap_flickering_timing_timeout"]

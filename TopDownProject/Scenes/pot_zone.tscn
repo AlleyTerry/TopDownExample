@@ -1,0 +1,131 @@
+[gd_scene load_steps=17 format=3 uid="uid://bmdrcv11j3mrl"]
+
+[ext_resource type="Script" path="res://Scenes/pot_zone.gd" id="1_2apkt"]
+[ext_resource type="Texture2D" uid="uid://dtiwcnorotsr4" path="res://Assets/Objects/Pot.png" id="1_clusr"]
+[ext_resource type="Texture2D" uid="uid://oa7c8fed5vbd" path="res://Assets/Objects/PotLiquidSpriteSheet.png" id="2_8ymbf"]
+[ext_resource type="Texture2D" uid="uid://b6oj0lrtd5udk" path="res://Assets/Objects/milk1.png" id="4_0cd3a"]
+[ext_resource type="Texture2D" uid="uid://djxqcu3twsfg3" path="res://Assets/Objects/Blank64x64Frame.png" id="4_6cs48"]
+[ext_resource type="Texture2D" uid="uid://u0aeay7i2vmt" path="res://Assets/Objects/milk2.png" id="5_2ys0l"]
+[ext_resource type="Texture2D" uid="uid://cyibchf5dy6xw" path="res://Assets/Objects/milk3.png" id="6_uwl0w"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfx74"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_clusr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3syl"]
+size = Vector2(53, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sldtq"]
+atlas = ExtResource("2_8ymbf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilo21"]
+atlas = ExtResource("2_8ymbf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gryx7"]
+atlas = ExtResource("2_8ymbf")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl203"]
+atlas = ExtResource("2_8ymbf")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tykn1"]
+atlas = ExtResource("2_8ymbf")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rep73"]
+atlas = ExtResource("2_8ymbf")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nuq6e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sldtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilo21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gryx7")
+}],
+"loop": true,
+"name": &"GoopCooking",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0cd3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2ys0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uwl0w")
+}],
+"loop": true,
+"name": &"MilkCooking",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_6cs48")
+}],
+"loop": true,
+"name": &"NoneInPot",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl203")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tykn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rep73")
+}],
+"loop": true,
+"name": &"SlimeCooking",
+"speed": 0.0
+}]
+
+[node name="PotZone" type="StaticBody2D"]
+script = ExtResource("1_2apkt")
+
+[node name="Pot" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vfx74")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1.5, -10.5)
+shape = SubResource("RectangleShape2D_v3syl")
+
+[node name="Mixture" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nuq6e")
+animation = &"NoneInPot"
+
+[node name="GoopTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="SlimeTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="MilkTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="GoopTimer" to="." method="_on_goop_timer_timeout"]
+[connection signal="timeout" from="SlimeTimer" to="." method="_on_slime_timer_timeout"]
+[connection signal="timeout" from="MilkTimer" to="." method="_on_milk_timer_timeout"]

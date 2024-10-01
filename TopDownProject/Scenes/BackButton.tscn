@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf817e81sjuqa"]
+
+[ext_resource type="Script" path="res://Scenes/Back.gd" id="1_qosow"]
+
+[node name="Back Button" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.018
+anchor_top = 0.022
+anchor_right = 0.018
+anchor_bottom = 0.022
+offset_left = -27.56
+offset_top = -15.76
+offset_right = 26.44
+offset_bottom = 15.24
+grow_horizontal = 0
+text = "Back"
+script = ExtResource("1_qosow")
+connected_scene = "game_level"
+
+[connection signal="button_down" from="Back" to="Back" method="_on_button_down"]

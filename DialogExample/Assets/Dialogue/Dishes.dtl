@@ -1,0 +1,9 @@
+if {choreHits} == 0:
+	Charlie: I should do the dishes...
+if {choreHits} == 1:
+	Charlie: I should have done the dishes last night
+if {choreHits} == 2:
+	Charlie: It was the least I could do.
+if {choreHits} == 3:
+	Charlie: Why didn’t I do that?
+[signal arg="end"]

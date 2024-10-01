@@ -1,0 +1,101 @@
+[gd_scene load_steps=12 format=3 uid="uid://bou848td1fhfq"]
+
+[ext_resource type="Script" path="res://Scripts/bedroom_scene.gd" id="1_yycj7"]
+[ext_resource type="PackedScene" uid="uid://dnecqf5g5sx8s" path="res://Scenes/detailed_player.tscn" id="2_5yy8s"]
+[ext_resource type="Texture2D" uid="uid://cluwgnhe0t1hk" path="res://Assets/Background/Bedroom Scene.png" id="3_lfbre"]
+[ext_resource type="PackedScene" uid="uid://bwls5up7f6my2" path="res://Scenes/scene_transition.tscn" id="4_aon3k"]
+[ext_resource type="Texture2D" uid="uid://chg1mrxuc1x08" path="res://Assets/Items/Level1-item.png" id="5_12b1q"]
+[ext_resource type="Texture2D" uid="uid://62847p83o7b" path="res://Assets/Items/Level2-item.png" id="6_xt82d"]
+[ext_resource type="Texture2D" uid="uid://cl5p1xyp64tps" path="res://Assets/Items/Level3-item.png" id="7_q5k1d"]
+[ext_resource type="Texture2D" uid="uid://dgu38tcctdorj" path="res://Assets/Items/Level4-item.png" id="8_tvwnl"]
+[ext_resource type="Texture2D" uid="uid://3i5fu8wfyj32" path="res://Assets/Items/Level5-item.png" id="9_2r1uo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibo2q"]
+size = Vector2(98, 253.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y48fh"]
+size = Vector2(824, 27)
+
+[node name="BedroomScene" type="Node2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_yycj7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(68, -261)
+scale = Vector2(2.445, 2.445)
+zoom = Vector2(2, 2)
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D"]
+offset_left = -350.92
+offset_top = -188.139
+offset_right = 1569.08
+offset_bottom = 891.861
+color = Color(0.686275, 0.811765, 0.760784, 1)
+
+[node name="BedroomScene" type="Sprite2D" parent="."]
+position = Vector2(61, -270)
+scale = Vector2(3.62, 3.62)
+texture = ExtResource("3_lfbre")
+
+[node name="DetailedPlayer" parent="." instance=ExtResource("2_5yy8s")]
+position = Vector2(-15, -143)
+scale = Vector2(3.5, 3.5)
+
+[node name="goToLevel" type="Area2D" parent="."]
+position = Vector2(-55, -288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="goToLevel"]
+position = Vector2(437, 130.25)
+shape = SubResource("RectangleShape2D_ibo2q")
+
+[node name="SceneTransition" parent="." instance=ExtResource("4_aon3k")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(62, -16.5)
+shape = SubResource("RectangleShape2D_y48fh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-361, -300)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_y48fh")
+
+[node name="Items" type="HBoxContainer" parent="."]
+offset_left = -266.0
+offset_top = -434.0
+offset_right = -26.0
+offset_bottom = -394.0
+theme_override_constants/separation = 10
+
+[node name="LevelOneItem" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_12b1q")
+expand_mode = 2
+
+[node name="LevelTwoItem" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("6_xt82d")
+expand_mode = 2
+
+[node name="LevelThreeItem" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("7_q5k1d")
+expand_mode = 2
+
+[node name="LevelFourItem" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("8_tvwnl")
+expand_mode = 2
+
+[node name="LevelFiveItem" type="TextureRect" parent="Items"]
+visible = false
+layout_mode = 2
+texture = ExtResource("9_2r1uo")
+expand_mode = 2
+
+[connection signal="body_entered" from="goToLevel" to="." method="_on_go_to_level_body_entered"]

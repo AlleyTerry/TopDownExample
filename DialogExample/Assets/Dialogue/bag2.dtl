@@ -1,0 +1,7 @@
+if {numHits} == 1:
+	Charlie: I’m sorry Sarah
+if {numHits} == 2:
+	Charlie: I let her down
+if {numHits} == 3:
+	Charlie: I should have done better. I should have helped more...
+[signal arg="end"]

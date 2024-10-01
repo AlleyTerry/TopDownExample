@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://d7f5j5rykhlq"]
+
+[ext_resource type="Texture2D" uid="uid://pgsvxkb88kn8" path="res://Assets/UI/ChatBox_BG.png" id="1_x8b7r"]
+[ext_resource type="Script" path="res://Scenes/chatbox.gd" id="1_xqo3i"]
+
+[node name="Chatbox" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xqo3i")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 66.0
+offset_bottom = -14.0
+texture = ExtResource("1_x8b7r")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 285.0
+offset_bottom = 35.0
+scale = Vector2(0.4, 0.4)
+text = "name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 14.0
+offset_right = 236.0
+offset_bottom = 70.0
+scale = Vector2(0.5, 0.5)
+text = "WAHH WAHH IM A BABY"

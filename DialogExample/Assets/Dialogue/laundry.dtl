@@ -1,0 +1,11 @@
+if {choreHits} == 0:
+	Charlie: I should go do the laundry
+if {choreHits} == 1:
+	Charlie: Why was I being lazy?
+if {choreHits} == 2:
+	Charlie: This could have been done so long ago...
+if {choreHits} == 3:
+	Charlie: I miss her.
+if {choreHits} == 4:
+	Charlie: I should say sorry for all this
+[signal arg="end"]

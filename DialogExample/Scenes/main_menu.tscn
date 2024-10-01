@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cpgub0n85l6h1"]
+
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_aqs33"]
+[ext_resource type="Texture2D" uid="uid://cluwgnhe0t1hk" path="res://Assets/Background/Bedroom Scene.png" id="2_3skeh"]
+[ext_resource type="Texture2D" uid="uid://dau2f06d7u3v7" path="res://Assets/Background/Start Menu Button.png" id="3_flxw0"]
+[ext_resource type="PackedScene" uid="uid://bwls5up7f6my2" path="res://Scenes/scene_transition.tscn" id="4_cdeca"]
+
+[node name="MainMenu" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_aqs33")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.560955, 0.560955, 0.560955, 1)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_3skeh")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="StartButton" type="Button" parent="CenterContainer"]
+custom_minimum_size = Vector2(235, 71)
+layout_mode = 2
+text = "
+
+"
+icon = ExtResource("3_flxw0")
+flat = true
+
+[node name="SceneTransition" parent="." instance=ExtResource("4_cdeca")]
+
+[connection signal="pressed" from="CenterContainer/StartButton" to="." method="_on_start_button_pressed"]

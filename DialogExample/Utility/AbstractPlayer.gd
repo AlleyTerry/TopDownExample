@@ -1,0 +1,1 @@
+class_name AbstractPlayer extends CharacterBody2D

@@ -1,0 +1,10 @@
+Charlie (neutral): hello my name is daniel
+Charlie (neutral): I am currently in denial
+Charlie (neutral): what do you think i should do?
+[text_input var="Response"]
+if {Response} == "jump":
+	Charlie: wow... that's...
+	Charlie: I'm...
+Charlie: no....?
+oh no...
+[signal arg="end"]
