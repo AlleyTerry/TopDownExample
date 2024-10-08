@@ -23,48 +23,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={
-"Charlie": "res://Assets/Dialogue/Charlie.dch",
-"Phone": "res://Assets/Dialogue/Phone.dch",
-"Sarah": "res://Assets/Dialogue/Sarah.dch",
-"boss": "res://Assets/Dialogue/boss.dch",
-"notes": "res://Assets/Dialogue/notes.dch",
-"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
-}
-directories/dtl_directory={
-"BadEnding": "res://Assets/Dialogue/BadEnding.dtl",
-"BadEndingBefore": "res://Assets/Dialogue/BadEndingBefore.dtl",
-"BedroomOpening": "res://Assets/Dialogue/BedroomOpening.dtl",
-"Cooking": "res://Assets/Dialogue/Cooking.dtl",
-"Dishes": "res://Assets/Dialogue/Dishes.dtl",
-"GoodEnding": "res://Assets/Dialogue/GoodEnding.dtl",
-"Playertimeline": "res://Assets/Dialogue/Playertimeline.dtl",
-"bag1": "res://Assets/Dialogue/bag1.dtl",
-"bag2": "res://Assets/Dialogue/bag2.dtl",
-"bag3": "res://Assets/Dialogue/bag3.dtl",
-"bedtime": "res://Assets/Dialogue/bedtime.dtl",
-"boss1": "res://Assets/Dialogue/boss1.dtl",
-"boss2": "res://Assets/Dialogue/boss2.dtl",
-"boss3": "res://Assets/Dialogue/boss3.dtl",
-"item1": "res://Assets/Dialogue/item1.dtl",
-"laundry": "res://Assets/Dialogue/laundry.dtl",
-"level1Bedroom": "res://Assets/Dialogue/level1Bedroom.dtl",
-"level2Bedroom": "res://Assets/Dialogue/level2Bedroom.dtl",
-"level2End": "res://Assets/Dialogue/level2End.dtl",
-"level2Opening": "res://Assets/Dialogue/level2Opening.dtl",
-"level3Bedroom": "res://Assets/Dialogue/level3Bedroom.dtl",
-"level3End": "res://Assets/Dialogue/level3End.dtl",
-"level4Bedroom": "res://Assets/Dialogue/level4Bedroom.dtl",
-"level4Opening": "res://Assets/Dialogue/level4Opening.dtl",
-"level5Opening": "res://Assets/Dialogue/level5Opening.dtl",
-"opening": "res://Assets/Dialogue/opening.dtl",
-"sign1": "res://Assets/Dialogue/sign1.dtl",
-"sign2": "res://Assets/Dialogue/sign2.dtl",
-"sign3": "res://sign3.dtl",
-"sign4": "res://Assets/Dialogue/sign4.dtl",
-"sign5": "res://Assets/Dialogue/sign5.dtl",
-"sign6": "res://Assets/Dialogue/sign6.dtl"
-}
+directories/dch_directory={}
+directories/dtl_directory={}
 variables={
 "Response": "",
 "choreHits": 1,
